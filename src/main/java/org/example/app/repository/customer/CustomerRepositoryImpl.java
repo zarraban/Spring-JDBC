@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 @Slf4j
-@Repository
+@Repository("customerRepository")
 public class CustomerRepositoryImpl implements CustomerRepository {
 
     JdbcTemplate jdbcTemplate;
@@ -63,7 +63,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Optional<Customer> getLastEntity() {
-        String sql = "SELECT * FROM customers LIMIT 1 ORDER BY DESC";
+        String sql = "SELECT * FROM customers ORDER BY id DESC LIMIT 1";
         return Optional.ofNullable(jdbcTemplate.queryForObject(sql, mapper));
     }
 }
