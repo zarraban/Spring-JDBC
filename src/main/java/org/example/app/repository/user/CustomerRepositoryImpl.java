@@ -57,7 +57,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public boolean deleteById(Long id) {
-        return false;
+        String sql = "DELETE FROM customers WHERE id = ?";
+        return jdbcTemplate.update(sql,id)>0;
     }
 
     @Override
