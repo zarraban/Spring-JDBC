@@ -13,8 +13,9 @@ target/
 *.ipr
 
 
- .idea/
+.idea/
 
+src/main/resources/app.properties
 
 ### Eclipse ###
 .apt_generated
