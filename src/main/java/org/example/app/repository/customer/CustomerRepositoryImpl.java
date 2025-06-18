@@ -1,4 +1,4 @@
-package org.example.app.repository.user;
+package org.example.app.repository.customer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.app.dto.CustomerDTOrequest;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 @Slf4j
-@Repository
+@Repository("customerRepository")
 public class CustomerRepositoryImpl implements CustomerRepository {
 
     JdbcTemplate jdbcTemplate;
@@ -57,12 +57,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public boolean deleteById(Long id) {
-        return false;
+        String sql = "DELETE FROM customers WHERE id = ?";
+        return jdbcTemplate.update(sql,id)>0;
     }
 
     @Override
     public Optional<Customer> getLastEntity() {
-        String sql = "SELECT * FROM customers LIMIT 1 ORDER BY DESC";
+        String sql = "SELECT * FROM customers ORDER BY id DESC LIMIT 1";
         return Optional.ofNullable(jdbcTemplate.queryForObject(sql, mapper));
     }
 }

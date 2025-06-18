@@ -1,0 +1,49 @@
+GET
+http://localhost:8080/Spring-JDBC-1.0-SNAPSHOT/api/v1/customers
+
+Отримаємо
+{
+    "statusCode": 404,
+    "message": "There are no customers saved!"
+}
+
+POST
+http://localhost:8080/Spring-JDBC-1.0-SNAPSHOT/api/v1/customers
+{
+    "name":"Alex",
+    "phone":"+380563456329",
+    "address":"Cool street"
+}
+{
+    "name":"Vlad",
+    "phone":"+380555556329",
+    "address":"Main street"
+}
+
+{
+    "name":"Sasha",
+    "phone":"+380564556329",
+    "address":"Groow street"
+}
+
+DELETE
+http://localhost:8080/Spring-JDBC-1.0-SNAPSHOT/api/v1/customers/2
+
+
+GET
+http://localhost:8080/Spring-JDBC-1.0-SNAPSHOT/api/v1/customers/last
+
+
+PUT
+http://localhost:8080/Spring-JDBC-1.0-SNAPSHOT/api/v1/customers/3
+{
+    "name":"Sasha",
+    "phone":"+380564556329",
+    "address":"Hello street"
+}
+
+GET
+http://localhost:8080/Spring-JDBC-1.0-SNAPSHOT/api/v1/customers/3
+
+
+
